@@ -1,0 +1,42 @@
+/* Лабораторна работа №3(С++). Задание: 
+Введите массив символов из 23 элементов. Определить является ли он палиндропом(симетричным с точностью до пробелов)
+или нет. Например, А РОЗА УПАЛА НА ЛАПУ АЗОРА - палиндром.(Предполагается что все буквы строки - прописные). */
+
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <Windows.H>
+#include <cstring>
+
+
+using namespace std;
+
+bool check_palindrom(string word)
+{
+	int lenght = word.length();
+	for (int i = 0; i < lenght / 2; ++i)
+	{
+		if (word[i] != word[lenght - i - 1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	string str;
+	cout << "Введите символы: ";
+	cin >> str;
+	if (check_palindrom(str))
+	{
+		cout << "Эти символы - палиндром.";
+	}
+	else
+	{
+		cout << "Эти символы - НЕ палиндром.";
+	}
+	return 0;
+}
